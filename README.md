@@ -1,6 +1,6 @@
 # 📰 Hacker News Reader
 
-A modern, responsive Hacker News reader built with React, TypeScript, and Material-UI. Experience the latest tech stories in a beautiful carousel interface! 
+A modern, responsive Hacker News reader built with React, TypeScript, and Material-UI. Experience the latest tech stories in a beautiful carousel interface!
 
 **Author:** Leonardo Lima (@zeonardo)
 
@@ -19,23 +19,27 @@ A modern, responsive Hacker News reader built with React, TypeScript, and Materi
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - Yarn package manager
 
 ### Local Development
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/zeonardo/hacker-news.git
    cd hacker-news
    ```
 
 2. **Install dependencies**
+
    ```bash
    yarn install
    ```
 
 3. **Start the development server**
+
    ```bash
    yarn dev
    ```
@@ -55,24 +59,31 @@ yarn deploy         # 🚀 Deploy to GitHub Pages
 ## 🛠️ Key Technologies
 
 ### **React + TypeScript**
+
 Modern React with full TypeScript support for type-safe development and better developer experience.
 
 ### **Material-UI (@mui/material)**
+
 Google's Material Design system providing beautiful, accessible components and consistent theming.
 
 ### **Vite**
+
 Lightning-fast build tool with HMR (Hot Module Replacement) for instant development feedback.
 
 ### **React Alice Carousel**
+
 Smooth, lightweight, responsive carousel component for browsing stories with touch/swipe support.
 
 ### **Axios**
+
 Promise-based HTTP client for reliable API communication with the Hacker News API.
 
 ### **Jest + React Testing Library**
+
 Comprehensive testing setup following best practices for component and hook testing.
 
 ### **Husky + ESLint + Prettier**
+
 Code quality tools with pre-commit hooks ensuring consistent, clean code.
 
 ## 📖 Project Structure

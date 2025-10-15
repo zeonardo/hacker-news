@@ -9,18 +9,20 @@ jest.mock('../services/storyService', () => ({
   getRandomTopStories: jest.fn(),
 }));
 
-const mockGetRandomTopStories = getRandomTopStories as jest.MockedFunction<typeof getRandomTopStories>;
+const mockGetRandomTopStories = getRandomTopStories as jest.MockedFunction<
+  typeof getRandomTopStories
+>;
 
 // Test component that uses the hook
 function TestComponent() {
   const { stories, loading, error } = useStories();
-  
+
   if (loading) return <div data-testid="loading">Loading...</div>;
   if (error) return <div data-testid="error">{error.message}</div>;
-  
+
   return (
     <div data-testid="stories">
-      {stories.map(story => (
+      {stories.map((story) => (
         <div key={story.id} data-testid={`story-${story.id}`}>
           {story.title} - Score: {story.score}
         </div>
@@ -89,7 +91,7 @@ describe('useStories', () => {
     // Check if stories are sorted by score (ascending: 5, 10, 20)
     const storyElements = screen.getAllByTestId(/^story-/);
     expect(storyElements).toHaveLength(3);
-    
+
     // Verify order by checking the text content
     expect(storyElements[0]).toHaveTextContent('Story 3 - Score: 5');
     expect(storyElements[1]).toHaveTextContent('Story 1 - Score: 10');

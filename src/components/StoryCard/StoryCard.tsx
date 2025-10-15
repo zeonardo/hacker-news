@@ -14,7 +14,11 @@ const StoryCard: React.FC<StoryCardProps> = ({ story }) => {
   const formattedDate = formatDate(story.time);
 
   return (
-    <Card role="article" variant="outlined" sx={{ minWidth: 300, cursor: 'pointer', height: '100%' }}>
+    <Card
+      role="article"
+      variant="outlined"
+      sx={{ minWidth: 300, cursor: 'pointer', height: '100%' }}
+    >
       <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <Typography
           title={story.title}
@@ -51,7 +55,10 @@ const StoryCard: React.FC<StoryCardProps> = ({ story }) => {
         </Box>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Typography variant="caption" color="text.secondary">
-            Author: <Typography component="span" color="text.primary" fontSize='inherit'>{story.author.id}</Typography>
+            Author:{' '}
+            <Typography component="span" color="text.primary" fontSize="inherit">
+              {story.author.id}
+            </Typography>
           </Typography>
           <Typography
             title={`Karma: ${story.author.karma}`}

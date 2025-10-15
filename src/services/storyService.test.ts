@@ -16,7 +16,9 @@ const mockMathRandom = jest.spyOn(Math, 'random');
 describe('storyService', () => {
   const mockFetchTopStories = fetchTopStories as jest.MockedFunction<typeof fetchTopStories>;
   const mockFetchStoryDetails = fetchStoryDetails as jest.MockedFunction<typeof fetchStoryDetails>;
-  const mockFetchAuthorDetails = fetchAuthorDetails as jest.MockedFunction<typeof fetchAuthorDetails>;
+  const mockFetchAuthorDetails = fetchAuthorDetails as jest.MockedFunction<
+    typeof fetchAuthorDetails
+  >;
 
   const mockStoryIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
@@ -76,7 +78,7 @@ describe('storyService', () => {
 
     it('should limit results to STORIES_LIMIT constant', async () => {
       const manyStoryIds = Array.from({ length: 500 }, (_, i) => i + 1);
-      
+
       mockFetchTopStories.mockResolvedValue(manyStoryIds);
       mockFetchStoryDetails.mockResolvedValue(mockStory);
       mockFetchAuthorDetails.mockResolvedValue(mockAuthor);
@@ -92,35 +94,35 @@ describe('storyService', () => {
     it('should randomize the selection of stories', async () => {
       // Provide enough story IDs to meet STORIES_LIMIT
       const storyIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-      
+
       mockFetchTopStories.mockResolvedValue(storyIds);
-      mockFetchStoryDetails.mockImplementation((id: number) => 
+      mockFetchStoryDetails.mockImplementation((id: number) =>
         Promise.resolve({ ...mockStory, id })
       );
       mockFetchAuthorDetails.mockResolvedValue(mockAuthor);
 
       // First call with one random sequence
       mockMathRandom.mockReturnValue(0.1);
-      
+
       const result1 = await getRandomTopStories();
 
       // Reset mocks for second call
       jest.clearAllMocks();
       mockFetchTopStories.mockResolvedValue(storyIds);
-      mockFetchStoryDetails.mockImplementation((id: number) => 
+      mockFetchStoryDetails.mockImplementation((id: number) =>
         Promise.resolve({ ...mockStory, id })
       );
       mockFetchAuthorDetails.mockResolvedValue(mockAuthor);
 
       // Second call with different random sequence
       mockMathRandom.mockReturnValue(0.9);
-      
+
       const result2 = await getRandomTopStories();
 
       // Both results should have the correct length
       expect(result1).toHaveLength(STORIES_LIMIT);
       expect(result2).toHaveLength(STORIES_LIMIT);
-      
+
       // Verify that stories were actually fetched
       expect(result1[0]).toHaveProperty('id');
       expect(result1[0]).toHaveProperty('author');
@@ -193,7 +195,7 @@ describe('storyService', () => {
 
     it('should call fetchStoryDetails with correct story IDs', async () => {
       const testStoryIds = [10, 20, 30];
-      
+
       mockFetchTopStories.mockResolvedValue(testStoryIds);
       mockFetchStoryDetails.mockResolvedValue(mockStory);
       mockFetchAuthorDetails.mockResolvedValue(mockAuthor);
@@ -202,7 +204,7 @@ describe('storyService', () => {
       await getRandomTopStories();
 
       // Verify each story ID was used to fetch details
-      testStoryIds.forEach(id => {
+      testStoryIds.forEach((id) => {
         expect(mockFetchStoryDetails).toHaveBeenCalledWith(id);
       });
     });
@@ -253,7 +255,7 @@ describe('storyService', () => {
       expect(story).toHaveProperty('author');
       expect(story.author).toHaveProperty('id');
       expect(story.author).toHaveProperty('karma');
-      
+
       // Type assertion to verify TypeScript typing
       const typedStory: StoryWithAuthor = story;
       expect(typedStory.author.id).toBe(mockAuthor.id);

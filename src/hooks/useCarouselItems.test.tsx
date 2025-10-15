@@ -20,11 +20,11 @@ Object.defineProperty(window, 'matchMedia', {
 // Test component that uses the hook
 function TestComponent({ onItemsChange }: { onItemsChange: (items: number) => void }) {
   const items = useCarouselItems();
-  
+
   useEffect(() => {
     onItemsChange(items);
   }, [items, onItemsChange]);
-  
+
   return <div data-testid="test-component">{items}</div>;
 }
 
@@ -42,11 +42,12 @@ describe('useCarouselItems', () => {
 
   it('returns 1 item for mobile screens (< 600px)', () => {
     matchMediaSpy = jest.spyOn(window, 'matchMedia').mockImplementation((query: string) => {
-      const matches = {
-        '(min-width: 600px)': false,
-        '(min-width: 1024px)': false,
-        '(min-width: 1440px)': false,
-      }[query] || false;
+      const matches =
+        {
+          '(min-width: 600px)': false,
+          '(min-width: 1024px)': false,
+          '(min-width: 1440px)': false,
+        }[query] || false;
 
       return {
         matches,
@@ -66,17 +67,18 @@ describe('useCarouselItems', () => {
     });
 
     render(<TestComponent onItemsChange={onItemsChange} />);
-    
+
     expect(capturedItems).toBe(1);
   });
 
   it('returns 2 items for tablet screens (600px - 1023px)', () => {
     matchMediaSpy = jest.spyOn(window, 'matchMedia').mockImplementation((query: string) => {
-      const matches = {
-        '(min-width: 600px)': true,
-        '(min-width: 1024px)': false,
-        '(min-width: 1440px)': false,
-      }[query] || false;
+      const matches =
+        {
+          '(min-width: 600px)': true,
+          '(min-width: 1024px)': false,
+          '(min-width: 1440px)': false,
+        }[query] || false;
 
       return {
         matches,
@@ -96,17 +98,18 @@ describe('useCarouselItems', () => {
     });
 
     render(<TestComponent onItemsChange={onItemsChange} />);
-    
+
     expect(capturedItems).toBe(2);
   });
 
   it('returns 3 items for desktop screens (1024px - 1439px)', () => {
     matchMediaSpy = jest.spyOn(window, 'matchMedia').mockImplementation((query: string) => {
-      const matches = {
-        '(min-width: 600px)': true,
-        '(min-width: 1024px)': true,
-        '(min-width: 1440px)': false,
-      }[query] || false;
+      const matches =
+        {
+          '(min-width: 600px)': true,
+          '(min-width: 1024px)': true,
+          '(min-width: 1440px)': false,
+        }[query] || false;
 
       return {
         matches,
@@ -126,17 +129,18 @@ describe('useCarouselItems', () => {
     });
 
     render(<TestComponent onItemsChange={onItemsChange} />);
-    
+
     expect(capturedItems).toBe(3);
   });
 
   it('returns 4 items for large desktop screens (>= 1440px)', () => {
     matchMediaSpy = jest.spyOn(window, 'matchMedia').mockImplementation((query: string) => {
-      const matches = {
-        '(min-width: 600px)': true,
-        '(min-width: 1024px)': true,
-        '(min-width: 1440px)': true,
-      }[query] || false;
+      const matches =
+        {
+          '(min-width: 600px)': true,
+          '(min-width: 1024px)': true,
+          '(min-width: 1440px)': true,
+        }[query] || false;
 
       return {
         matches,
@@ -156,7 +160,7 @@ describe('useCarouselItems', () => {
     });
 
     render(<TestComponent onItemsChange={onItemsChange} />);
-    
+
     expect(capturedItems).toBe(4);
   });
 
@@ -173,8 +177,8 @@ describe('useCarouselItems', () => {
 
     matchMediaSpy = jest.spyOn(window, 'matchMedia').mockImplementation((query: string) => {
       return {
-        get matches() { 
-          return globalQueryStates[query as keyof typeof globalQueryStates] || false; 
+        get matches() {
+          return globalQueryStates[query as keyof typeof globalQueryStates] || false;
         },
         media: query,
         onchange: null,
@@ -238,16 +242,19 @@ describe('useCarouselItems', () => {
     const addEventListenerSpy = jest.fn();
     const removeEventListenerSpy = jest.fn();
 
-    matchMediaSpy = jest.spyOn(window, 'matchMedia').mockImplementation((query: string) => ({
-      matches: false,
-      media: query,
-      onchange: null,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
-      addEventListener: addEventListenerSpy,
-      removeEventListener: removeEventListenerSpy,
-      dispatchEvent: jest.fn(),
-    } as MediaQueryList));
+    matchMediaSpy = jest.spyOn(window, 'matchMedia').mockImplementation(
+      (query: string) =>
+        ({
+          matches: false,
+          media: query,
+          onchange: null,
+          addListener: jest.fn(),
+          removeListener: jest.fn(),
+          addEventListener: addEventListenerSpy,
+          removeEventListener: removeEventListenerSpy,
+          dispatchEvent: jest.fn(),
+        }) as MediaQueryList
+    );
 
     const { unmount } = render(<TestComponent onItemsChange={jest.fn()} />);
 
