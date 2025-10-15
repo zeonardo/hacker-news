@@ -1,73 +1,100 @@
-# React + TypeScript + Vite
+# 📰 Hacker News Reader
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive Hacker News reader built with React, TypeScript, and Material-UI. Experience the latest tech stories in a beautiful carousel interface! 
 
-Currently, two official plugins are available:
+**Author:** Leonardo Lima (@zeonardo)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌟 **[Live Demo](https://zeonardo.github.io/hacker-news/)**
 
-## React Compiler
+![Hacker News Reader](./public/hacker-news.jpg)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 📱 **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
+- 🎠 **Interactive Carousel** - Browse stories with smooth navigation
+- ⚡ **Real-time Data** - Fetches latest stories from Hacker News API
+- 🎨 **Material Design** - Clean, modern UI with Material-UI components
+- 🧪 **Well Tested** - Comprehensive test suite with Jest and React Testing Library
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
+- Node.js 18+ 
+- Yarn package manager
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Local Development
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/zeonardo/hacker-news.git
+   cd hacker-news
+   ```
+
+2. **Install dependencies**
+   ```bash
+   yarn install
+   ```
+
+3. **Start the development server**
+   ```bash
+   yarn dev
+   ```
+
+4. **Open your browser** to `http://localhost:5173` 🎉
+
+### Other Commands
+
+```bash
+yarn build          # 🏗️  Build for production
+yarn test           # 🧪 Run tests in watch mode
+yarn test:ci        # ⚙️  Run tests once (CI mode)
+yarn lint           # 🔍 Check code quality
+yarn deploy         # 🚀 Deploy to GitHub Pages
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Key Technologies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+### **React + TypeScript**
+Modern React with full TypeScript support for type-safe development and better developer experience.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+### **Material-UI (@mui/material)**
+Google's Material Design system providing beautiful, accessible components and consistent theming.
+
+### **Vite**
+Lightning-fast build tool with HMR (Hot Module Replacement) for instant development feedback.
+
+### **React Alice Carousel**
+Smooth, lightweight, responsive carousel component for browsing stories with touch/swipe support.
+
+### **Axios**
+Promise-based HTTP client for reliable API communication with the Hacker News API.
+
+### **Jest + React Testing Library**
+Comprehensive testing setup following best practices for component and hook testing.
+
+### **Husky + ESLint + Prettier**
+Code quality tools with pre-commit hooks ensuring consistent, clean code.
+
+## 📖 Project Structure
+
 ```
+src/
+├── components/     # Reusable UI components
+├── hooks/         # Custom React hooks
+├── services/      # API services and business logic
+├── types/         # TypeScript type definitions
+├── utils/         # Helper functions
+└── styles/        # Custom styles and themes
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests: `yarn test:ci`
+5. Submit a pull request
+
+---
+
+Built with ❤️ by [Leonardo Lima](https://github.com/zeonardo)
