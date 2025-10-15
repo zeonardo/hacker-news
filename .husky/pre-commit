@@ -1,3 +1,4 @@
+yarn format:write
 yarn typecheck
 yarn lint
 yarn test:ci
