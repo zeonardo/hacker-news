@@ -1,5 +1,5 @@
-import React from 'react';
 import { render, act } from '@testing-library/react';
+import { useEffect } from 'react';
 import { useCarouselItems } from './useCarouselItems';
 
 // Mock window.matchMedia
@@ -21,7 +21,7 @@ Object.defineProperty(window, 'matchMedia', {
 function TestComponent({ onItemsChange }: { onItemsChange: (items: number) => void }) {
   const items = useCarouselItems();
   
-  React.useEffect(() => {
+  useEffect(() => {
     onItemsChange(items);
   }, [items, onItemsChange]);
   
