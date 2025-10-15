@@ -1,0 +1,15 @@
+{
+  "files": [],
+  "compilerOptions": {
+    "jsx": "react-jsx", // Ensure this is set
+    "module": "ESNext",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "moduleResolution": "node", // Change "bundler" to "node" for Jest compatibility
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true
+  },
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
+}
