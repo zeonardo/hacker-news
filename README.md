@@ -4,7 +4,7 @@ A modern, responsive Hacker News reader built with React, TypeScript, and Materi
 
 **Author:** Leonardo Lima (@zeonardo)
 
-🌟 **[Live Demo](https://zeonardo.github.io/hacker-news/)**
+🌟 **[Live Demo](https://zeonardo.github.io/hacker-news/){:target="_blank"}**
 
 ![Hacker News Reader](./public/hacker-news.jpg)
 
