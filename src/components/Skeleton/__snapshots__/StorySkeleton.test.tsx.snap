@@ -3,7 +3,7 @@
 exports[`StorySkeleton component matches snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="MuiStack-root css-1vkoruo-MuiStack-root"
+    class="MuiStack-root css-90ydg6-MuiStack-root"
   >
     <div
       class="MuiBox-root css-1mc38uo"

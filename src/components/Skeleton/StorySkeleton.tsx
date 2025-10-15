@@ -13,7 +13,7 @@ const StorySkeleton: React.FC<StorySkeletonProps> = ({ itemCount = 1 }) => (
     alignItems="stretch"
     minHeight={100}
     spacing={2}
-    sx={{ overflowX: 'auto', paddingX: 2 }}
+    sx={{ overflowX: 'auto', paddingX: 2, bgcolor: 'black' }}
   >
     {Array.from({ length: itemCount }).map((_, index) => (
       <Box
