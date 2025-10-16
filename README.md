@@ -20,7 +20,7 @@ A modern, responsive Hacker News reader built with React, TypeScript, and Materi
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 20+
 - Yarn package manager
 
 ### Local Development
