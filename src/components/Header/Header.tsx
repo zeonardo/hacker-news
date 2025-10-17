@@ -10,7 +10,7 @@ const Header: React.FC = () => (
     <Toolbar>
       <Box display="flex" alignItems="center" gap={1}>
         <NewspaperIcon color="primary" fontSize="large" />
-        <Typography variant="h6" component="div" color="white">
+        <Typography variant="h6" component="h1" color="white">
           Hacker News
         </Typography>
       </Box>

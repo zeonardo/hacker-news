@@ -12,6 +12,7 @@ describe('Header', () => {
   it('displays the application title', () => {
     render(<Header />);
     expect(screen.getByText('Hacker News')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
   });
 
   it('renders the newspaper icon', () => {
